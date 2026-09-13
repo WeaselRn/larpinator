@@ -4,8 +4,8 @@ import { useState } from "react";
 import { reactionForScore } from "@/lib/reactions";
 
 /**
- * Shows the score-appropriate meme. Falls back to the emoji placeholder when
- * the asset file isn't present yet (drop files into /public/assets/memes).
+ * Shows the score-appropriate meme (see memes.md). Falls back to the emoji
+ * placeholder when the asset file isn't present.
  */
 export function MemeReaction({ score }: { score: number }) {
   const reaction = reactionForScore(score);
@@ -20,14 +20,14 @@ export function MemeReaction({ score }: { score: number }) {
             {reaction.label}
           </span>
           <span className="font-mono text-[10px] text-muted/50">
-            meme slot: {reaction.meme.replace("/assets/memes/", "assets/memes/")}
+            meme slot: {reaction.src.replace("/assets/memes/", "assets/memes/")}
           </span>
         </div>
       ) : (
         <div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={reaction.meme}
+            src={reaction.src}
             alt={reaction.label}
             className="h-48 w-full object-cover sm:h-56"
             onError={() => setFailed(true)}

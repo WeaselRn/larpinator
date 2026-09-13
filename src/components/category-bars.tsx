@@ -1,5 +1,7 @@
 import { categoryEmoji, categoryLabel } from "@/lib/categories";
+import { MEME_ASSETS } from "@/lib/reactions";
 import { scoreBarStyle, scoreColor } from "@/lib/ui";
+import { MemeImage } from "./meme-image";
 
 export function CategoryBars({
   categories,
@@ -12,11 +14,18 @@ export function CategoryBars({
 
   return (
     <div className="panel p-5 sm:p-6">
-      <div className="mb-4 flex items-center justify-between">
-        <h3 className="title-display text-xl">THE BREAKDOWN</h3>
-        <span className="font-mono text-[10px] tracking-widest text-muted uppercase">
-          higher = more larp
-        </span>
+      <div className="mb-4 flex items-start justify-between gap-4">
+        <div>
+          <h3 className="title-display text-xl">THE BREAKDOWN</h3>
+          <span className="font-mono text-[10px] tracking-widest text-muted uppercase">
+            higher = more larp
+          </span>
+        </div>
+        <MemeImage
+          src={MEME_ASSETS.whyLarp}
+          alt="Why larp?"
+          className="h-20 w-auto shrink-0 rounded-xl border border-edge"
+        />
       </div>
       <div className="flex flex-col gap-4">
         {keys.map((key) => {

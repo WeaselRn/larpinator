@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { MemeImage } from "@/components/meme-image";
 import { ANALYSIS_META } from "@/lib/categories";
+import { MEME_ASSETS } from "@/lib/reactions";
 
 const ANALYZE_CARDS = (["cv", "github", "music", "combined"] as const).map((key) => ({
   key,
@@ -15,15 +17,22 @@ const PLAY_LINKS = [
 export default function AnalyzeHubPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
-      <div className="mb-10">
-        <span className="chip">🔬 analysis hub</span>
-        <h1 className="title-display mt-4 text-5xl sm:text-6xl">
-          ANALYZE <span className="text-hot">SOMETHING</span>
-        </h1>
-        <p className="mt-3 max-w-2xl text-muted">
-          Every completed analysis feeds your overall LARP score, tier, profile, and leaderboard
-          position. Choose your evidence.
-        </p>
+      <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <span className="chip">🔬 analysis hub</span>
+          <h1 className="title-display mt-4 text-5xl sm:text-6xl">
+            ANALYZE <span className="text-hot">SOMETHING</span>
+          </h1>
+          <p className="mt-3 max-w-2xl text-muted">
+            Every completed analysis feeds your overall LARP score, tier, profile, and leaderboard
+            position. Choose your evidence.
+          </p>
+        </div>
+        <MemeImage
+          src={MEME_ASSETS.son}
+          alt="Son..."
+          className="h-36 w-auto shrink-0 rotate-2 rounded-2xl border border-edge sm:h-44"
+        />
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">

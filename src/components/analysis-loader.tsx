@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { LOADING_LINES, randomLoadingLine } from "@/lib/loading-lines";
+import { MEME_ASSETS } from "@/lib/reactions";
 import { useAudioManager } from "./audio-manager";
+import { MemeImage } from "./meme-image";
 
 export function AnalysisLoader({ title = "ANALYZING" }: { title?: string }) {
   const [line, setLine] = useState(LOADING_LINES[0]);
@@ -31,6 +33,18 @@ export function AnalysisLoader({ title = "ANALYZING" }: { title?: string }) {
           {title} <span className="animate-blink text-hot">▮</span>
         </h3>
         <p className="mt-2 min-h-[1.5rem] font-mono text-sm text-muted">{line}</p>
+      </div>
+      <div className="flex items-center justify-center gap-4">
+        <MemeImage
+          src={MEME_ASSETS.lookThere}
+          alt="Look there"
+          className="h-28 w-auto -rotate-2 rounded-xl border border-edge"
+        />
+        <MemeImage
+          src={MEME_ASSETS.lookLarp}
+          alt="Look, larp"
+          className="h-28 w-auto rotate-2 rounded-xl border border-edge"
+        />
       </div>
       <div className="h-1.5 w-full max-w-sm overflow-hidden rounded-full bg-ink-2">
         <div className="animate-marquee h-full w-1/2 rounded-full bg-gradient-to-r from-hot to-grape" />

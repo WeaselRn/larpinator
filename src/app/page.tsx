@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { Show } from "@clerk/nextjs";
+import { MemeImage } from "@/components/meme-image";
 import { TierBadge } from "@/components/tier-badge";
 import { getLeaderboard, type LeaderboardRow } from "@/lib/leaderboard";
+import { MEME_ASSETS } from "@/lib/reactions";
 import { scoreColor } from "@/lib/ui";
 
 const QUICK_ACTIONS = [
@@ -102,6 +104,12 @@ export default async function HomePage() {
             </span>
           ))}
         </div>
+
+        <MemeImage
+          src={MEME_ASSETS.noLimit}
+          alt="No limit"
+          className="mt-12 w-full max-w-4xl rounded-3xl border border-edge shadow-2xl shadow-hot/10"
+        />
       </section>
 
       {/* Ticker */}

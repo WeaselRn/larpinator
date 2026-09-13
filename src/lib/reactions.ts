@@ -1,55 +1,40 @@
-export interface Reaction {
-  key: string;
-  max: number;
+/** Meme assets in public/assets/memes (see memes.md for placement notes). */
+export const MEME_ASSETS = {
+  godOfLarp: "/assets/memes/god-of-larp.gif",
+  larpGod: "/assets/memes/larpgod.webp",
+  absoluteLarp: "/assets/memes/absolutelarp.jpg",
+  lookThere: "/assets/memes/look%20there.jpg",
+  lookLarp: "/assets/memes/looklarp.gif",
+  lowCortisol: "/assets/memes/low%20cortisol.gif",
+  noLimit: "/assets/memes/nolimit.gif",
+  son: "/assets/memes/son.webp",
+  whyLarp: "/assets/memes/whylarp.webp",
+  thirtyYears: "/assets/memes/30years.webp",
+} as const;
+
+export interface ScoreMeme {
+  min: number;
   label: string;
   emoji: string;
-  meme: string;
+  src: string;
 }
 
 /**
- * Meme reaction mapping. Drop the real files into public/assets/memes with
- * these exact names — components fall back to emoji/text if a file is missing.
+ * Score-reaction memes (memes.md):
+ *  - below 40        → low cortisol
+ *  - 40–80           → son
+ *  - above 80        → larpgod
+ *  - above 90        → god of larp
  */
-export const REACTIONS: Reaction[] = [
-  {
-    key: "wholesome",
-    max: 20,
-    label: "Suspiciously wholesome",
-    emoji: "🧘",
-    meme: "/assets/memes/wholesome.png",
-  },
-  {
-    key: "suspicious",
-    max: 50,
-    label: "Suspicious...",
-    emoji: "🤨",
-    meme: "/assets/memes/suspicious.png",
-  },
-  {
-    key: "concerned",
-    max: 75,
-    label: "We're concerned",
-    emoji: "😬",
-    meme: "/assets/memes/concerned.png",
-  },
-  {
-    key: "brutal",
-    max: 90,
-    label: "Brutal",
-    emoji: "💀",
-    meme: "/assets/memes/brutal.png",
-  },
-  {
-    key: "catastrophic",
-    max: 100,
-    label: "Catastrophic LARP",
-    emoji: "☢️",
-    meme: "/assets/memes/catastrophic.png",
-  },
+export const SCORE_MEMES: ScoreMeme[] = [
+  { min: 91, label: "GOD OF LARP", emoji: "☢️", src: MEME_ASSETS.godOfLarp },
+  { min: 81, label: "Certified LARP GOD", emoji: "👑", src: MEME_ASSETS.larpGod },
+  { min: 40, label: "Son…", emoji: "🤨", src: MEME_ASSETS.son },
+  { min: 0, label: "Low cortisol detected", emoji: "🧘", src: MEME_ASSETS.lowCortisol },
 ];
 
-export function reactionForScore(score: number): Reaction {
-  return REACTIONS.find((r) => score <= r.max) ?? REACTIONS[REACTIONS.length - 1];
+export function reactionForScore(score: number): ScoreMeme {
+  return SCORE_MEMES.find((meme) => score >= meme.min) ?? SCORE_MEMES[SCORE_MEMES.length - 1];
 }
 
 /**
