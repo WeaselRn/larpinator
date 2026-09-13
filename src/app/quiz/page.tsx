@@ -345,6 +345,33 @@ export default function QuizPage() {
             </div>
           </div>
 
+          <div className="panel flex flex-wrap items-center justify-between gap-4 p-5">
+            <div>
+              <p className="font-mono text-[10px] tracking-widest text-muted uppercase">
+                Overall LARP updated
+              </p>
+              <p
+                className="title-display text-3xl"
+                style={{ color: scoreColor(result.profile.overall_larp_score) }}
+              >
+                {Math.round(result.profile.overall_larp_score)}
+                <span className="text-base text-muted"> /100</span>
+              </p>
+              <p
+                className="font-mono text-xs"
+                style={{ color: scoreColor(result.profile.overall_larp_score) }}
+              >
+                {result.profile.larp_tier} · {result.profile.xp} XP
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-3">
+              <TierBadge score={result.profile.overall_larp_score} size="sm" />
+              <Link href="/dashboard" className="btn-ghost">
+                🪪 View profile
+              </Link>
+            </div>
+          </div>
+
           <AchievementBanner achievements={result.new_achievements} />
 
           <RoastBox roast={result.roast} />
