@@ -8,6 +8,7 @@ export const MEME_ASSETS = {
   lowCortisol: "/assets/memes/low%20cortisol.gif",
   noLimit: "/assets/memes/nolimit.gif",
   son: "/assets/memes/son.webp",
+  sonJpg: "/assets/memes/Son.jpg",
   whyLarp: "/assets/memes/whylarp.webp",
   thirtyYears: "/assets/memes/30years.webp",
 } as const;
@@ -22,14 +23,14 @@ export interface ScoreMeme {
 /**
  * Score-reaction memes (memes.md):
  *  - below 40        → low cortisol
- *  - 40–80           → son
+ *  - 40–80           → Son.jpg
  *  - above 80        → larpgod
  *  - above 90        → god of larp
  */
 export const SCORE_MEMES: ScoreMeme[] = [
   { min: 91, label: "GOD OF LARP", emoji: "☢️", src: MEME_ASSETS.godOfLarp },
   { min: 81, label: "Certified LARP GOD", emoji: "👑", src: MEME_ASSETS.larpGod },
-  { min: 40, label: "Son...", emoji: "🤨", src: MEME_ASSETS.son },
+  { min: 40, label: "Son...", emoji: "🤨", src: MEME_ASSETS.sonJpg },
   { min: 0, label: "Low cortisol detected", emoji: "🧘", src: MEME_ASSETS.lowCortisol },
 ];
 

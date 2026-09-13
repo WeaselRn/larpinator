@@ -6,7 +6,7 @@
 
 
 ## Basic Details
-### Team Name: [Tetris]
+### Team Name: Tetris
 
 
 ### Team Members
@@ -118,7 +118,7 @@ For Software:
 *Explain what the video demonstrates*
 
 # Additional Demos
-[Add any extra demo materials/links]
+https://larpinator-delta.vercel.app/
 
 ## Team Contributions
 - Ruebin Vargheese Joseph : Professional larper, did the whole proect solo.
