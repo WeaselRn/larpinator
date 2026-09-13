@@ -1,0 +1,14 @@
+node_modules
+.next
+out
+build
+.env
+.env*.local
+*.tsbuildinfo
+next-env.d.ts
+
+# python pdf service
+pdf-service/__pycache__/
+pdf-service/.venv/
+pdf-service/venv/
+*.pyc
