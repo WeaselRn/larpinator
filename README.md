@@ -2,7 +2,7 @@
 
 
 
-# [Larpinator] 🎯
+# Larpinator 🎯
 
 
 ## Basic Details
@@ -10,73 +10,107 @@
 
 
 ### Team Members
-- Team Lead: [Ruebin Vargheese Joseph] - [Schoo of Engineering, CUSAT]
+- Team Lead: Ruebin Vargheese Joseph - School of Engineering, CUSAT
 
 ### Project Description
-[2-3 lines about what your project does]
+Larpinator is an AI-powered bullshit detector for your digital personality. Upload your CV, analyze your GitHub and music taste, battle your friends, take unhinged quizzes, and discover how hard you're actually LARPing.
+
+Every analysis contributes to your overall LARP score, tier, profile, and leaderboard rank.
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+People are constantly pretending to be more productive, talented, mysterious, technical, or interesting than they actually are.
+
+There was absolutely no way to scientifically measure this extremely serious problem.
+
+Until now.
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+Larpinator uses AI to analyze your CV, GitHub, music taste, quiz answers, and more — then exposes your buzzwords, cringe, fakeness, delusion, substance, and aura.
+
+It roasts you, gives you a LARP score, assigns you a ridiculous tier, and lets you prove to everyone that you're either a LARP GOD or an NPC.
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+- Languages: TypeScript, JavaScript, Python
+- Framework: Next.js
+- Authentication: Clerk
+- Database: Supabase (PostgreSQL)
+- AI: Groq
+- PDF Processing: PyMuPDF
+- Frontend: React, HTML, CSS
+- Tools: Git, GitHub, Docker
+- Assets: JPG, WebP, GIF, MP3
 
-For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
 
 ### Implementation
 For Software:
+
+    Larpinator is implemented as a Next.js web application with Clerk authentication, Supabase for persistent data, Groq for AI-powered LARP analysis, and a separate FastAPI/PyMuPDF service for extracting text from uploaded PDF resumes.
+
+    The application supports CV, GitHub, Music, Combined, LARP Battle, LARP Quiz, Daily LARP, profile scoring, achievements, leaderboards, and shareable LARP cards. Every completed activity contributes to the user's overall LARP profile.
+
 # Installation
-[commands]
+```bash
+npm install
+
+cd pdf-service
+python -m pip install -r requirements.txt
+cd ..
+```
+
+Configure the required environment variables using .env.example, including Clerk, Supabase, Groq, GitHub, Last.fm, and the PDF service URL.
 
 # Run
-[commands]
+Start the PDF extraction service:
+```bash
+cd pdf-service
+python -m uvicorn main:app --port 8000
+```
+In a separate terminal, start the Next.js application:
+```bash
+npm run dev
+```
+Open:
+
+http://localhost:3000
 
 ### Project Documentation
 For Software:
+    - Architecture: Next.js → Python/PyMuPDF → Groq → Supabase
+    - Authentication: Clerk
+    - Database: Supabase PostgreSQL
+    - AI Analysis: Groq
+    - PDF Processing: PyMuPDF
+    - Scoring: Centralized LARP scoring and tier system
+    - Media: Local meme, GIF, WebP, JPG and MP3 assets
+    - Database setup: Run supabase/migrations/001_schema.sql followed by 002_seed.sql in the Supabase SQL Editor.
+    - Agent/development notes: See AGENTS.md for project architecture rules, commands, environment requirements, and implementation conventions.
 
-# Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+# Screenshots
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+## Home
+![Homepage](readme%20assets/home.png)
+*Larpinator landing page: the oversized, chaotic entry point where users choose how they want to get roasted.*
+
+## Analyze — LARP Battle
+![LARP Battle](readme%20assets/larp%20battle.png)
+*LARP Battle lets two users compare their overall LARP scores and decide who is truly the bigger LARPer.*
+
+## Leaderboard
+![Leaderboard](readme%20assets/leaderboard.png)
+*The global leaderboard ranks LARPers by score, aura, buzzword density, and other ridiculous metrics.*
+
+## Profile
+![Profile](readme%20assets/profile.png)
+*User dashboard showing the overall LARP score, tier badge, category breakdowns, analysis history, and recent activity.*
 
 # Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
 
-For Hardware:
-
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
+## System Workflow
+![Workflow](readme%20assets/workflow.png)
+*High-level architecture: users authenticate with Clerk, submit content through Next.js, the Python PDF service extracts resume text, Groq roasts the evidence, and Supabase stores the profile, scores, and history.*
 
 ### Project Demo
 # Video
@@ -87,9 +121,7 @@ For Hardware:
 [Add any extra demo materials/links]
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- Ruebin Vargheese Joseph : Professional larper, did the whole proect solo.
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
