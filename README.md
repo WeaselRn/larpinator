@@ -46,9 +46,9 @@ For Software:
 ### Implementation
 For Software:
 
-    Larpinator is implemented as a Next.js web application with Clerk authentication, Supabase for persistent data, Groq for AI-powered LARP analysis, and a separate FastAPI/PyMuPDF service for extracting text from uploaded PDF resumes.
+Larpinator is implemented as a Next.js web application with Clerk authentication, Supabase for persistent data, Groq for AI-powered LARP analysis, and a separate FastAPI/PyMuPDF service for extracting text from uploaded PDF resumes.
 
-    The application supports CV, GitHub, Music, Combined, LARP Battle, LARP Quiz, Daily LARP, profile scoring, achievements, leaderboards, and shareable LARP cards. Every completed activity contributes to the user's overall LARP profile.
+The application supports CV, GitHub, Music, Combined, LARP Battle, LARP Quiz, Daily LARP, profile scoring, achievements, leaderboards, and shareable LARP cards. Every completed activity contributes to the user's overall LARP profile.
 
 # Installation
 ```bash
@@ -113,11 +113,6 @@ For Software:
 *High-level architecture: users authenticate with Clerk, submit content through Next.js, the Python PDF service extracts resume text, Groq roasts the evidence, and Supabase stores the profile, scores, and history.*
 
 ### Project Demo
-# Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
-
-# Additional Demos
 https://larpinator-delta.vercel.app/
 
 ## Team Contributions
