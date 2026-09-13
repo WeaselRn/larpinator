@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ANALYSIS_CATEGORIES, ANALYSIS_META } from "@/lib/categories";
-import { AUDIO_CUES, reactionForScore } from "@/lib/reactions";
 import type { Achievement, LarpAnalysisResult, Profile, ScoreType } from "@/lib/types";
 import { scoreColor } from "@/lib/ui";
 import { tierForScore } from "@/lib/tiers";
@@ -72,7 +71,6 @@ export function AnalysisResult({
   newAchievements?: Achievement[];
 }) {
   const meta = ANALYSIS_META[type];
-  const reaction = reactionForScore(result.overall_score);
 
   return (
     <div className="animate-rise flex flex-col gap-6">
@@ -85,8 +83,7 @@ export function AnalysisResult({
           <ScoreReveal score={result.overall_score} />
           <TierBadge score={result.overall_score} size="lg" />
           <div className="flex flex-wrap items-center justify-center gap-2">
-            <AudioReaction src={reaction.audio} autoPlay label="Reaction sound" />
-            <AudioReaction src={AUDIO_CUES.reveal} label="Sting" />
+            <AudioReaction label="Replay sound" />
             <ShareButton
               url={`/card/${profile.username}`}
               text={`I scored ${Math.round(result.overall_score)}/100 on ${meta.label} on LARPINATOR. Get LARPed:`}

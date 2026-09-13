@@ -2,9 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { LOADING_LINES, randomLoadingLine } from "@/lib/loading-lines";
+import { useAudioManager } from "./audio-manager";
 
 export function AnalysisLoader({ title = "ANALYZING" }: { title?: string }) {
   const [line, setLine] = useState(LOADING_LINES[0]);
+  const { playRandom } = useAudioManager();
+
+  useEffect(() => {
+    playRandom({ force: true });
+  }, [playRandom]);
 
   useEffect(() => {
     const interval = setInterval(() => {

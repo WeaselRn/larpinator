@@ -2,17 +2,15 @@
 
 
 
-# [Project Name] 🎯
+# [Larpinator] 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: [Tetris]
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: [Ruebin Vargheese Joseph] - [Schoo of Engineering, CUSAT]
 
 ### Project Description
 [2-3 lines about what your project does]

@@ -16,7 +16,8 @@
 - **Every activity writes through `src/lib/activity.ts`** → inserts an `analyses` row, recalculates the profile score/tier, awards XP, evaluates achievements.
 - **AI calls are server-side** (`src/lib/groq.ts`), validated with zod schemas (`src/lib/ai-schemas.ts`) before anything is saved. Default model: `openai/gpt-oss-120b` (override with `GROQ_MODEL`). No vision model is available on the current Groq account; image CV uploads require `GROQ_VISION_MODEL`.
 - **Leaderboards derive from stored scores** via SQL views (`leaderboard_entries`, `leaderboard_quiz`, `leaderboard_battle`, `leaderboard_daily`) — never maintain them manually.
-- **Meme/audio assets** go in `public/assets/{memes,audio,icons}`; expected filenames are defined in `src/lib/reactions.ts`. Components fall back to emoji if files are missing.
+- **Meme assets** go in `public/assets/memes` (expected filenames in `src/lib/reactions.ts`); components fall back to emoji if files are missing.
+- **Sound** is centralized in `src/components/audio-manager.tsx` (`AudioManagerProvider` + `useAudioManager().playRandom()`): random track from `AUDIO_TRACKS` on navigation (activity routes force-play), every ~75s while visible, on activity start (`AnalysisLoader` mount), and on score reveal (`ScoreReveal` / battle result mount). Mute state persists in localStorage; toggle lives in the navbar.
 
 ## Database
 

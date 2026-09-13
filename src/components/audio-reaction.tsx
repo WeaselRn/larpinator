@@ -1,46 +1,31 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
+import { useAudioManager } from "./audio-manager";
 
-/**
- * Plays a reaction sound. Silently disappears when the asset file is missing
- * (drop files into /public/assets/audio). Autoplay may be blocked by the
- * browser — that is handled gracefully.
- */
+/** Manual replay button for the score-reveal sound. */
 export function AudioReaction({
-  src,
-  autoPlay = false,
   label = "Play sound",
+  autoPlay = false,
 }: {
-  src: string;
-  autoPlay?: boolean;
   label?: string;
+  autoPlay?: boolean;
 }) {
-  const ref = useRef<HTMLAudioElement>(null);
-  const [available, setAvailable] = useState(true);
+  const { playRandom } = useAudioManager();
 
   useEffect(() => {
-    if (autoPlay && ref.current) {
-      ref.current.play().catch(() => {
-        /* autoplay blocked — fine */
-      });
+    if (autoPlay) {
+      playRandom({ force: true });
     }
-  }, [autoPlay, src]);
-
-  if (!available) return null;
+  }, [autoPlay, playRandom]);
 
   return (
-    <span className="inline-flex items-center gap-2">
-      <audio ref={ref} src={src} preload="none" onError={() => setAvailable(false)} />
-      <button
-        type="button"
-        className="btn-ghost !px-3 !py-1.5 text-xs"
-        onClick={() => {
-          ref.current?.play().catch(() => {});
-        }}
-      >
-        🔊 {label}
-      </button>
-    </span>
+    <button
+      type="button"
+      className="btn-ghost !px-3 !py-1.5 text-xs"
+      onClick={() => playRandom({ force: true })}
+    >
+      🔊 {label}
+    </button>
   );
 }

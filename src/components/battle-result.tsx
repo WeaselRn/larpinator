@@ -1,11 +1,14 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect } from "react";
 import type { BattlePlayerResult } from "@/lib/ai-schemas";
 import { categoryEmoji, categoryLabel } from "@/lib/categories";
 import type { Achievement, Finding, Profile } from "@/lib/types";
 import { scoreColor } from "@/lib/ui";
-import { AUDIO_CUES } from "@/lib/reactions";
 import { AchievementBanner } from "./analysis-result";
 import { AudioReaction } from "./audio-reaction";
+import { useAudioManager } from "./audio-manager";
 import { FindingsList } from "./findings-list";
 import { MemeReaction } from "./meme-reaction";
 import { ShareButton } from "./share-button";
@@ -68,6 +71,11 @@ function PlayerRoast({
 export function BattleResultView({ data }: { data: BattleResponse }) {
   const { playerOne, playerTwo, verdict, findings } = data.result;
   const winner = data.battle.winner;
+  const { playRandom } = useAudioManager();
+
+  useEffect(() => {
+    playRandom({ force: true });
+  }, [playRandom]);
 
   return (
     <div className="animate-rise flex flex-col gap-6">
@@ -89,7 +97,7 @@ export function BattleResultView({ data }: { data: BattleResponse }) {
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-muted">{verdict}</p>
         <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
-          <AudioReaction src={AUDIO_CUES.battle} autoPlay label="Battle sound" />
+          <AudioReaction label="Replay sound" />
           <ShareButton
             url={`/card/${data.profile.username}`}
             text={`⚔️ LARP battle: ${data.battle.playerOneName} ${Math.round(playerOne.overall_score)} vs ${data.battle.playerTwoName} ${Math.round(playerTwo.overall_score)}. Get LARPed:`}

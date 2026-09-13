@@ -4,13 +4,11 @@ export interface Reaction {
   label: string;
   emoji: string;
   meme: string;
-  audio: string;
 }
 
 /**
- * Meme/audio reaction mapping. Drop the real files into
- * public/assets/memes and public/assets/audio with these exact names —
- * components fall back to emoji/text if a file is missing.
+ * Meme reaction mapping. Drop the real files into public/assets/memes with
+ * these exact names — components fall back to emoji/text if a file is missing.
  */
 export const REACTIONS: Reaction[] = [
   {
@@ -19,7 +17,6 @@ export const REACTIONS: Reaction[] = [
     label: "Suspiciously wholesome",
     emoji: "🧘",
     meme: "/assets/memes/wholesome.png",
-    audio: "/assets/audio/wholesome.mp3",
   },
   {
     key: "suspicious",
@@ -27,7 +24,6 @@ export const REACTIONS: Reaction[] = [
     label: "Suspicious...",
     emoji: "🤨",
     meme: "/assets/memes/suspicious.png",
-    audio: "/assets/audio/suspicious.mp3",
   },
   {
     key: "concerned",
@@ -35,7 +31,6 @@ export const REACTIONS: Reaction[] = [
     label: "We're concerned",
     emoji: "😬",
     meme: "/assets/memes/concerned.png",
-    audio: "/assets/audio/concerned.mp3",
   },
   {
     key: "brutal",
@@ -43,7 +38,6 @@ export const REACTIONS: Reaction[] = [
     label: "Brutal",
     emoji: "💀",
     meme: "/assets/memes/brutal.png",
-    audio: "/assets/audio/brutal.mp3",
   },
   {
     key: "catastrophic",
@@ -51,7 +45,6 @@ export const REACTIONS: Reaction[] = [
     label: "Catastrophic LARP",
     emoji: "☢️",
     meme: "/assets/memes/catastrophic.png",
-    audio: "/assets/audio/catastrophic.mp3",
   },
 ];
 
@@ -59,9 +52,8 @@ export function reactionForScore(score: number): Reaction {
   return REACTIONS.find((r) => score <= r.max) ?? REACTIONS[REACTIONS.length - 1];
 }
 
-export const AUDIO_CUES = {
-  loading: "/assets/audio/loading.mp3",
-  reveal: "/assets/audio/reveal.mp3",
-  tier: "/assets/audio/tier.mp3",
-  battle: "/assets/audio/battle.mp3",
-} as const;
+/**
+ * Sound pool — one of these plays randomly while browsing, when an activity
+ * starts, and when a score is revealed. Managed by AudioManagerProvider.
+ */
+export const AUDIO_TRACKS = ["/assets/audio/faaah.mp3", "/assets/audio/tuco-get-out.mp3"];

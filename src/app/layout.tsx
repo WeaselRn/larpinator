@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Archivo_Black, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { AmbientAudio, AudioManagerProvider } from "@/components/audio-manager";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { clerkAppearance } from "@/lib/clerk-appearance";
@@ -37,9 +38,12 @@ export default function RootLayout({
     <html lang="en" className={`${archivo.variable} ${grotesk.variable} ${jetbrains.variable}`}>
       <body className="flex min-h-screen flex-col">
         <ClerkProvider appearance={clerkAppearance} afterSignOutUrl="/">
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <AudioManagerProvider>
+            <AmbientAudio />
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </AudioManagerProvider>
         </ClerkProvider>
       </body>
     </html>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
+import { AudioToggle } from "./audio-manager";
 
 const NAV_LINKS = [
   { href: "/analyze", label: "Analyze" },
@@ -32,6 +33,7 @@ export function Navbar() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
+          <AudioToggle />
           <Show when="signed-in">
             <Link
               href="/dashboard"
