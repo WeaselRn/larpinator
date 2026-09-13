@@ -24,9 +24,9 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LARPINATOR — How hard are you LARPing?",
+  title: "LARPINATOR — How hard are you main-charactering?",
   description:
-    "Submit your CV, GitHub, and music taste. Get roasted, scored, and ranked. The internet's bullshit detector.",
+    "Submit your CV, GitHub, and music taste. Get cooked, scored, and ranked. The internet's delulu detector.",
 };
 
 export default function RootLayout({

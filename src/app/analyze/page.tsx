@@ -25,7 +25,7 @@ export default function AnalyzeHubPage() {
           </h1>
           <p className="mt-3 max-w-2xl text-muted">
             Every completed analysis feeds your overall LARP score, tier, profile, and leaderboard
-            position. Choose your evidence.
+            position. Choose your evidence and get cooked.
           </p>
         </div>
         <MemeImage

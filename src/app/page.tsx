@@ -10,19 +10,19 @@ const QUICK_ACTIONS = [
   {
     href: "/analyze/cv",
     emoji: "📄",
-    title: "Analyze CV",
+    title: "CV Vibe Check",
     blurb: "Let's see what HR sees vs what reality sees.",
   },
   {
     href: "/analyze/github",
     emoji: "💻",
-    title: "Analyze GitHub",
+    title: "GitHub Aura Audit",
     blurb: "Your README says distributed AI platform. Your repo says 4 files.",
   },
   {
     href: "/analyze/music",
     emoji: "🎧",
-    title: "Analyze Music",
+    title: "Music Taste Exposed",
     blurb: "Your playlist says underground. Your top artist says otherwise.",
   },
   {
@@ -47,20 +47,20 @@ const QUICK_ACTIONS = [
 
 const STEPS = [
   { emoji: "📥", title: "Submit", blurb: "CV, GitHub, music — pick your poison." },
-  { emoji: "🔥", title: "Get roasted", blurb: "The AI finds the gap between claims and evidence." },
-  { emoji: "📊", title: "Get scored", blurb: "Categories, tier, and an overall LARP score." },
-  { emoji: "👑", title: "Become a legend", blurb: "Climb the leaderboard. Earn achievements. Share the card." },
+  { emoji: "🔥", title: "Get cooked", blurb: "The AI finds the gap between claims and evidence." },
+  { emoji: "📊", title: "Get scored", blurb: "Categories, tier, and an overall LARP level." },
+  { emoji: "👑", title: "Become a legend", blurb: "Climb the leaderboard. Earn achievements. Share the receipt." },
 ];
 
 const TICKER = [
   "BUZZWORDS",
   "CRINGE",
   "AURA",
-  "FAKENESS",
+  "DELULU",
   "MAIN CHARACTER ENERGY",
-  "EXPERIENCE INFLATION",
+  "RESUME BLOAT",
   "EMOTIONAL DAMAGE",
-  "NPC ENERGY",
+  "NPC VIBES",
 ];
 
 export default async function HomePage() {
@@ -75,21 +75,21 @@ export default async function HomePage() {
     <div className="mx-auto max-w-6xl px-4">
       {/* Hero */}
       <section className="relative flex flex-col items-center py-16 text-center sm:py-24">
-        <span className="chip animate-rise">🕵️ the internet&apos;s bullshit detector</span>
+        <span className="chip animate-rise">🕵️ the internet&apos;s delulu detector</span>
         <h1 className="title-display animate-rise mt-6 text-6xl leading-[0.95] sm:text-8xl md:text-9xl">
           LARP
           <span className="text-hot glow-hot">INATOR</span>
         </h1>
         <p className="animate-rise mt-5 max-w-xl text-lg text-muted sm:text-xl">
-          How hard are you LARPing? Submit your CV, your GitHub, your music taste. Get roasted,
-          scored, and ranked. Then do it again.
+          How hard are you LARPing? Submit your CV, your GitHub, your music taste. Get cooked,
+          scored, and ranked. Then do it again. No cap.
         </p>
         <div className="animate-rise mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link href="/analyze" className="btn-hot !px-7 !py-3.5 text-base">
             GET LARPed →
           </Link>
           <Link href="/leaderboard" className="btn-ghost !px-7 !py-3.5 text-base">
-            🏆 View Leaderboard
+            🏆 Main Characters
           </Link>
         </div>
 
@@ -147,7 +147,7 @@ export default async function HomePage() {
       <section className="mt-16">
         <div className="mb-6 flex items-end justify-between">
           <h2 className="title-display text-3xl sm:text-4xl">
-            FEATURED <span className="text-grape">LARPers</span>
+            FEATURED <span className="text-grape">MAIN CHARACTERS</span>
           </h2>
           <Link href="/leaderboard" className="font-mono text-xs text-muted hover:text-hot">
             full leaderboard →
@@ -159,7 +159,7 @@ export default async function HomePage() {
             <span className="text-4xl">🫥</span>
             <p className="font-bold">The leaderboard is suspiciously empty.</p>
             <p className="text-sm text-muted">
-              Be the first LARPer. Or the least. Someone has to set the bar.
+              Be the first main character. Or the least. Someone has to set the bar.
             </p>
             <Link href="/analyze" className="btn-hot mt-3">
               Claim #1
@@ -226,7 +226,7 @@ export default async function HomePage() {
         </h2>
         <p className="max-w-2xl text-muted">
           CV, GitHub, music, quiz, daily challenges, battles — all of it rolls into one score, one
-          tier, one leaderboard. Higher score = more LARP. That&apos;s the whole point.
+          tier, one leaderboard. Higher score = more LARP. That&apos;s the whole aesthetic.
         </p>
         <Show when="signed-out">
           <Link href="/sign-up" className="btn-hot !px-7 !py-3.5 text-base">

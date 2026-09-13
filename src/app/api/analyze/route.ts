@@ -24,13 +24,13 @@ function statusForError(message: string): number {
 export async function POST(request: NextRequest) {
   const { userId } = await auth();
   if (!userId) {
-    return jsonError("Unauthorized", 401);
+    return jsonError("Sign in to get LARPed, bestie.", 401);
   }
 
   try {
     const profile = await ensureProfile();
     if (!profile) {
-      return jsonError("Unauthorized", 401);
+      return jsonError("Sign in to get LARPed, bestie.", 401);
     }
 
     const contentType = request.headers.get("content-type") ?? "";
@@ -63,12 +63,12 @@ export async function POST(request: NextRequest) {
         return jsonOk(outcome);
       }
       case "github": {
-        if (!username) return jsonError("GitHub username is required.", 400);
+        if (!username) return jsonError("GitHub username is required. We need a target, bestie.", 400);
         const outcome = await runGithubAnalysis(profile, username);
         return jsonOk(outcome);
       }
       case "music": {
-        if (!username) return jsonError("Last.fm username is required.", 400);
+        if (!username) return jsonError("Last.fm username is required. No scrobbles, no roast.", 400);
         const outcome = await runMusicAnalysis(profile, username);
         return jsonOk(outcome);
       }
@@ -77,7 +77,7 @@ export async function POST(request: NextRequest) {
         return jsonOk(outcome);
       }
       default:
-        return jsonError("Unknown analysis type. Use cv, github, music or combined.", 400);
+        return jsonError("Unknown analysis type. Use cv, github, music or combined. Don't be delulu.", 400);
     }
   } catch (err) {
     if (err instanceof AiValidationError) {

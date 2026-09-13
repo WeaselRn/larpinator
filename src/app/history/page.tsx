@@ -76,7 +76,7 @@ export default async function HistoryPage({
         <h1 className="title-display mt-4 text-5xl">
           YOUR <span className="text-hot">RAP SHEET</span>
         </h1>
-        <p className="mt-3 text-muted">Every roast, every score, permanently on the record.</p>
+        <p className="mt-3 text-muted">Every roast, every score, permanently on the record. The receipts stay out.</p>
       </div>
 
       <div className="mb-6 flex flex-wrap gap-2">
@@ -103,7 +103,7 @@ export default async function HistoryPage({
             Your history is spotless. Suspiciously spotless. Fix that.
           </p>
           <Link href="/analyze" className="btn-hot mt-3">
-            Get roasted
+            Get cooked
           </Link>
         </div>
       ) : (
@@ -119,10 +119,10 @@ export default async function HistoryPage({
                     <p className="font-mono text-[10px] text-muted">
                       {timeAgo(row.created_at)}
                       {row.improvements && row.improvements.length > 0
-                        ? ` · ${row.improvements.length} improvement tips`
+                        ? ` · ${row.improvements.length} level-up tips`
                         : ""}
                       {row.findings && row.findings.length > 0
-                        ? ` · ${row.findings.length} findings`
+                        ? ` · ${row.findings.length} receipts`
                         : ""}
                     </p>
                   </div>

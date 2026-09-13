@@ -19,11 +19,11 @@ export default async function LeaderboardPage() {
         <div>
           <span className="chip">🏆 leaderboard</span>
           <h1 className="title-display mt-4 text-5xl sm:text-6xl">
-            GLOBAL LARP <span className="text-hot">LEADERBOARD</span>
+            MAIN CHARACTER <span className="text-hot">LEADERBOARD</span>
           </h1>
           <p className="mt-3 max-w-2xl text-muted">
             Ranked by stored LARP scores. Updates the moment any activity lands. Higher = more
-            LARP. Yes, that means #1 is the biggest LARPer alive.
+            main character energy. Yes, #1 is the biggest LARPer alive. No cap.
           </p>
         </div>
         <MemeImage

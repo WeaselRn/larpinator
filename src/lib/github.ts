@@ -6,7 +6,7 @@ const DEEP_SCAN_LIMIT = 10;
 const CONCURRENCY = 4;
 
 export class GitHubNotFoundError extends Error {
-  constructor(message = "GitHub user or repository not found.") {
+  constructor(message = "GitHub user or repository not found. That username is giving ghost profile." ) {
     super(message);
     this.name = "GitHubNotFoundError";
   }
@@ -98,7 +98,7 @@ async function githubFetch<T>(path: string, opts?: { raw?: boolean }): Promise<T
         await sleep(waitMs);
         continue;
       }
-      throw new Error("GitHub rate limit reached. Wait a minute and try again.");
+      throw new Error("GitHub rate limit reached. GitHub needs a minute to process the aura. Try again shortly.");
     }
 
     if (response.status === 404) {
@@ -113,7 +113,7 @@ async function githubFetch<T>(path: string, opts?: { raw?: boolean }): Promise<T
     return data as T;
   }
 
-  throw new Error("GitHub rate limit reached. Wait a minute and try again.");
+  throw new Error("GitHub rate limit reached. GitHub needs a minute to process the aura. Try again shortly.");
 }
 
 async function mapLimit<T, R>(items: T[], limit: number, fn: (item: T) => Promise<R>): Promise<R[]> {

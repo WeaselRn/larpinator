@@ -16,7 +16,7 @@ export default function GithubAnalysisPage() {
     event.preventDefault();
     setLocalError(null);
     if (!username.trim()) {
-      setLocalError("Enter a GitHub username or profile URL.");
+      setLocalError("Enter a GitHub username or profile URL, bestie.");
       return;
     }
     run(() =>
@@ -31,13 +31,13 @@ export default function GithubAnalysisPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
       <div className="mb-8">
-        <span className="chip">💻 github analysis</span>
+        <span className="chip">💻 github aura audit</span>
         <h1 className="title-display mt-4 text-5xl">
           AUDIT YOUR <span className="text-hot">GITHUB</span>
         </h1>
         <p className="mt-3 text-muted">
           We read your profile, your repos, your READMEs, and your commit history. The gap between
-          the description and the code is where the LARP lives.
+          the description and the code is where the delulu lives.
         </p>
       </div>
 
@@ -60,7 +60,7 @@ export default function GithubAnalysisPage() {
           {localError && <ErrorPanel message={localError} />}
 
           <button type="submit" className="btn-hot !py-3.5 text-base">
-            🔥 Roast my GitHub
+            🔥 Cook my GitHub
           </button>
           <p className="font-mono text-[10px] text-muted">
             Public data only, collected server-side via the GitHub API. Deep-scans your top ~10

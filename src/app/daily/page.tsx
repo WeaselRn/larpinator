@@ -20,13 +20,13 @@ export default async function DailyPage() {
       overview = await getDailyOverview(profile);
     }
   } catch (err) {
-    loadError = err instanceof Error ? err.message : "Failed to load the daily challenge.";
+    loadError = err instanceof Error ? err.message : "Failed to load the daily LARP.";
   }
 
   if (loadError) return <DbNotice message={loadError} />;
   if (!profile) redirect("/sign-in");
   if (!overview) {
-    return <DbNotice message="No daily challenges seeded. Run supabase/migrations/002_seed.sql." />;
+    return <DbNotice message="No daily challenges seeded. Run supabase/migrations/002_seed.sql so we can cook you." />;
   }
 
   return (

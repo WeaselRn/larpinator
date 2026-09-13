@@ -29,7 +29,7 @@ export interface ScoreMeme {
 export const SCORE_MEMES: ScoreMeme[] = [
   { min: 91, label: "GOD OF LARP", emoji: "☢️", src: MEME_ASSETS.godOfLarp },
   { min: 81, label: "Certified LARP GOD", emoji: "👑", src: MEME_ASSETS.larpGod },
-  { min: 40, label: "Son…", emoji: "🤨", src: MEME_ASSETS.son },
+  { min: 40, label: "Son...", emoji: "🤨", src: MEME_ASSETS.son },
   { min: 0, label: "Low cortisol detected", emoji: "🧘", src: MEME_ASSETS.lowCortisol },
 ];
 

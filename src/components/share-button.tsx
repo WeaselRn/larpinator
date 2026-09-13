@@ -36,7 +36,7 @@ export function ShareButton({
 
   return (
     <button type="button" onClick={share} className={className}>
-      {copied ? "✅ Copied!" : `🔗 ${label}`}
+      {copied ? "✅ Copied, bestie!" : `🔗 ${label}`}
     </button>
   );
 }

@@ -35,7 +35,7 @@ function shuffle<T>(items: T[], rng: () => number): T[] {
 
 export async function GET(request: NextRequest) {
   const { userId } = await auth();
-  if (!userId) return jsonError("Unauthorized", 401);
+  if (!userId) return jsonError("Sign in to get LARPed, bestie.", 401);
 
   try {
     const url = new URL(request.url);
@@ -58,7 +58,7 @@ export async function GET(request: NextRequest) {
 
     const all = (data ?? []) as QuizQuestionPublic[];
     if (all.length === 0) {
-      return jsonError("No quiz questions found. Run the seed migration (002_seed.sql).", 500);
+      return jsonError("No quiz questions found. Run the seed migration (002_seed.sql) so we can test your confidence.", 500);
     }
 
     const dayIndex = Math.floor(Date.now() / 86_400_000);

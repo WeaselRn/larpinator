@@ -16,7 +16,7 @@ export default function MusicAnalysisPage() {
     event.preventDefault();
     setLocalError(null);
     if (!username.trim()) {
-      setLocalError("Enter your Last.fm username.");
+      setLocalError("Enter your Last.fm username, bestie.");
       return;
     }
     run(() =>
@@ -31,13 +31,13 @@ export default function MusicAnalysisPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
       <div className="mb-8">
-        <span className="chip">🎧 music analysis</span>
+        <span className="chip">🎧 music taste exposed</span>
         <h1 className="title-display mt-4 text-5xl">
           EXPOSE YOUR <span className="text-hot">MUSIC TASTE</span>
         </h1>
         <p className="mt-3 text-muted">
           Your playlist says mysterious underground artist. Your top artist says Taylor Swift.
-          We&apos;ll read your Last.fm scrobbles and find out which one is real.
+          We&apos;ll read your Last.fm scrobbles and find out which one is real. No cap.
         </p>
       </div>
 
@@ -60,7 +60,7 @@ export default function MusicAnalysisPage() {
           {localError && <ErrorPanel message={localError} />}
 
           <button type="submit" className="btn-hot !py-3.5 text-base">
-            🔥 Roast my music taste
+            🔥 Cook my music taste
           </button>
           <p className="font-mono text-[10px] text-muted">
             No Last.fm account? You&apos;re either 45 or a liar. Either way, no scrobbles, no

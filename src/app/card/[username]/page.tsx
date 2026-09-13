@@ -22,7 +22,7 @@ export async function generateMetadata({
     const score = Math.round(profile.overall_larp_score);
     return {
       title: `${profile.username} — ${score}/100 ${profile.larp_tier} — LARPINATOR`,
-      description: `${profile.username} is a certified ${profile.larp_tier} (${score}/100) on LARPINATOR, the internet's bullshit detector.`,
+      description: `${profile.username} is a certified ${profile.larp_tier} (${score}/100) on LARPINATOR, the internet's delulu detector.`,
     };
   } catch {
     return { title: "LARPINATOR" };
@@ -49,7 +49,7 @@ export default async function CardPage({ params }: { params: Promise<{ username:
   if (!profile) notFound();
 
   const statEntries = Object.entries(profile.category_scores).slice(0, 4);
-  const stats = statEntries.map(([key, value]) => ({ label: key.replace(/_/g, " "), value }));
+  const stats = statEntries.map(([key, value]) => ({ label: categoryLabel(key), value }));
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">

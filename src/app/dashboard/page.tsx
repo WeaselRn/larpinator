@@ -9,7 +9,7 @@ import { DownloadCardButton, LarpCard } from "@/components/larp-card";
 import { ShareButton } from "@/components/share-button";
 import { TierBadge } from "@/components/tier-badge";
 import { ACHIEVEMENT_DEFS, getUserAchievements } from "@/lib/achievements";
-import { ANALYSIS_META } from "@/lib/categories";
+import { ANALYSIS_META, categoryLabel } from "@/lib/categories";
 import { timeAgo } from "@/lib/format";
 import { ensureProfile, fetchLatestAnalyses } from "@/lib/profile";
 import { getSupabaseAdmin } from "@/lib/supabase";
@@ -65,7 +65,7 @@ export default async function DashboardPage() {
 
   const cardStats = Object.entries(profile.category_scores)
     .slice(0, 4)
-    .map(([key, value]) => ({ label: key.replace(/_/g, " "), value }));
+    .map(([key, value]) => ({ label: categoryLabel(key), value }));
 
   const cardData = {
     username: profile.username,
@@ -138,10 +138,10 @@ export default async function DashboardPage() {
               <span className="text-4xl">🫥</span>
               <p className="font-bold">No stats yet.</p>
               <p className="text-sm text-muted">
-                Complete an analysis to start building your LARP profile.
+                Complete an analysis to start building your main character character sheet.
               </p>
               <Link href="/analyze" className="btn-hot mt-2">
-                Analyze something
+                Get cooked
               </Link>
             </div>
           )}
@@ -241,10 +241,10 @@ export default async function DashboardPage() {
 
       <div className="mt-6 flex flex-wrap gap-3">
         <Link href="/history" className="btn-ghost">
-          📜 Full history
+          📜 Full rap sheet
         </Link>
         <Link href="/analyze" className="btn-ghost">
-          🔬 New analysis
+          🔥 New analysis
         </Link>
         <Link href="/leaderboard" className="btn-ghost">
           🏆 Leaderboard

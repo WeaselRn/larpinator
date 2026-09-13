@@ -83,11 +83,11 @@ export function AnalysisResult({
           <ScoreReveal score={result.overall_score} />
           <TierBadge score={result.overall_score} size="lg" />
           <div className="flex flex-wrap items-center justify-center gap-2">
-            <AudioReaction label="Replay sound" />
+            <AudioReaction label="Run it back" />
             <ShareButton
               url={`/card/${profile.username}`}
               text={`I scored ${Math.round(result.overall_score)}/100 on ${meta.label} on LARPINATOR. Get LARPed:`}
-              label="Share card"
+              label="Share receipt"
               className="btn-hot"
             />
           </div>

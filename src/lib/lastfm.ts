@@ -3,7 +3,7 @@ const USERNAME_RE = /^[a-zA-Z0-9._-]{2,30}$/;
 const CACHE_TTL_MS = 30 * 60 * 1000;
 
 export class LastfmNotFoundError extends Error {
-  constructor(message = "Last.fm user not found. Check the username.") {
+  constructor(message = "Last.fm user not found. Check the username — or accept that the scrobbles don't exist.") {
     super(message);
     this.name = "LastfmNotFoundError";
   }
@@ -22,7 +22,7 @@ const cache = new Map<string, { expires: number; data: unknown }>();
 async function lastfmFetch<T>(method: string, params: Record<string, string>): Promise<T> {
   const apiKey = process.env.LASTFM_API_KEY ?? process.env.LASTFM_API;
   if (!apiKey) {
-    throw new Error("LASTFM_API_KEY is missing. Add it to .env (server-side only).");
+    throw new Error("LASTFM_API_KEY is missing. Add it to .env (server-side only) or we can't read your scrobbles.");
   }
 
   const query = new URLSearchParams({ method, api_key: apiKey, format: "json", ...params });
@@ -43,8 +43,8 @@ async function lastfmFetch<T>(method: string, params: Record<string, string>): P
   const json = (await response.json()) as { error?: number; message?: string };
   if (json.error) {
     if (json.error === 6) throw new LastfmNotFoundError();
-    if (json.error === 10) throw new Error("Last.fm rejected the API key (10). Check LASTFM_API_KEY.");
-    if (json.error === 29) throw new Error("Last.fm rate limit reached (29). Wait a moment and try again.");
+    if (json.error === 10) throw new Error("Last.fm rejected the API key (10). Check LASTFM_API_KEY before we can't judge your top artists.");
+    if (json.error === 29) throw new Error("Last.fm rate limit reached (29). The music judge needs a moment. Try again shortly.");
     throw new Error(`Last.fm error ${json.error}: ${json.message ?? "unknown"}`);
   }
 

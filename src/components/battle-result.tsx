@@ -54,7 +54,7 @@ function PlayerRoast({
       <div className="mb-2 flex items-center justify-between gap-2">
         <p className="title-display text-xl break-all">
           {name}
-          {isWinner && <span className="ml-2 text-sm text-lime">🏆 winner</span>}
+          {isWinner && <span className="ml-2 text-sm text-lime">🏆 cooked them</span>}
         </p>
         <span
           className="title-display text-3xl"
@@ -88,7 +88,7 @@ export function BattleResultView({ data }: { data: BattleResponse }) {
             <span className="text-amber">🤝 IT&apos;S A DRAW</span>
           ) : (
             <>
-              🏆 WINNER:{" "}
+              🏆 COOKED:{" "}
               <span className="text-lime">
                 {winner === "player_one" ? data.battle.playerOneName : data.battle.playerTwoName}
               </span>
@@ -97,15 +97,15 @@ export function BattleResultView({ data }: { data: BattleResponse }) {
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-muted">{verdict}</p>
         <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
-          <AudioReaction label="Replay sound" />
+          <AudioReaction label="Run it back" />
           <ShareButton
             url={`/card/${data.profile.username}`}
             text={`⚔️ LARP battle: ${data.battle.playerOneName} ${Math.round(playerOne.overall_score)} vs ${data.battle.playerTwoName} ${Math.round(playerTwo.overall_score)}. Get LARPed:`}
-            label="Share the battle"
+            label="Share the damage"
             className="btn-hot"
           />
           <Link href="/battle" className="btn-ghost">
-            ⚔️ Rematch
+            ⚔️ Run it back
           </Link>
         </div>
       </div>
@@ -115,7 +115,7 @@ export function BattleResultView({ data }: { data: BattleResponse }) {
       {/* Score table */}
       <div className="panel overflow-hidden">
         <div className="grid grid-cols-[1fr_auto_auto] items-center gap-x-6 gap-y-0 border-b border-edge/70 px-5 py-4 font-mono text-xs tracking-widest text-muted uppercase sm:grid-cols-[1.4fr_1fr_1fr]">
-          <span>metric</span>
+          <span>receipt</span>
           <span className="text-center">{data.battle.playerOneName}</span>
           <span className="text-center">{data.battle.playerTwoName}</span>
         </div>
@@ -189,7 +189,7 @@ export function BattleResultView({ data }: { data: BattleResponse }) {
         <MemeReaction score={playerOne.overall_score} />
         <div className="panel flex flex-col items-center justify-center gap-3 p-5">
           <p className="font-mono text-[10px] tracking-widest text-muted uppercase">
-            your battle score
+            your battle level
           </p>
           <TierBadge score={playerOne.overall_score} size="lg" />
           <Link href="/dashboard" className="btn-ghost">

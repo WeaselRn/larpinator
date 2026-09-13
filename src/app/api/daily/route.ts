@@ -13,15 +13,15 @@ export const maxDuration = 60;
 
 export async function GET() {
   const { userId } = await auth();
-  if (!userId) return jsonError("Unauthorized", 401);
+  if (!userId) return jsonError("Sign in to get LARPed, bestie.", 401);
 
   try {
     const profile = await ensureProfile();
-    if (!profile) return jsonError("Unauthorized", 401);
+    if (!profile) return jsonError("Sign in to get LARPed, bestie.", 401);
 
     const overview = await getDailyOverview(profile);
     if (!overview) {
-      return jsonError("No daily challenges seeded. Run the seed migration (002_seed.sql).", 500);
+      return jsonError("No daily challenges seeded. Run the seed migration (002_seed.sql) so we can cook you.", 500);
     }
 
     return jsonOk({
@@ -39,21 +39,21 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   const { userId } = await auth();
-  if (!userId) return jsonError("Unauthorized", 401);
+  if (!userId) return jsonError("Sign in to get LARPed, bestie.", 401);
 
   try {
     const profile = await ensureProfile();
-    if (!profile) return jsonError("Unauthorized", 401);
+    if (!profile) return jsonError("Sign in to get LARPed, bestie.", 401);
 
     const body = (await request.json().catch(() => null)) as { response?: string } | null;
     const response = (body?.response ?? "").trim();
     if (!response) {
-      return jsonError("Write something first. Even a bad answer is content.", 400);
+      return jsonError("Write something first. Even a bad answer is content, bestie.", 400);
     }
 
     const challenge = await getTodayChallenge();
     if (!challenge) {
-      return jsonError("No daily challenges seeded. Run the seed migration (002_seed.sql).", 500);
+      return jsonError("No daily challenges seeded. Run the seed migration (002_seed.sql) so we can cook you.", 500);
     }
 
     const today = todayKey();

@@ -23,7 +23,7 @@ export function CombinedClient({
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
       <div className="mb-8">
-        <span className="chip">🧬 combined analysis</span>
+        <span className="chip">🧬 cross-vibe audit</span>
         <h1 className="title-display mt-4 text-5xl">
           CROSS-<span className="text-hot">EXAMINE</span> YOURSELF
         </h1>
@@ -40,7 +40,7 @@ export function CombinedClient({
           <h2 className="title-display text-xl">YOUR EVIDENCE</h2>
           {sources.length === 0 ? (
             <p className="text-sm text-muted">
-              Nothing submitted yet. Go get roasted first — at least 2 analyses are needed.
+              Nothing submitted yet. Go get cooked first — at least 2 analyses are needed.
             </p>
           ) : (
             <ul className="flex flex-col gap-2.5">
@@ -93,7 +93,7 @@ export function CombinedClient({
             <p className="font-mono text-[10px] text-muted">
               Need at least 2 completed analyses.{" "}
               <Link href="/analyze" className="text-hot hover:underline">
-                Collect evidence →
+                Collect receipts →
               </Link>
             </p>
           )}

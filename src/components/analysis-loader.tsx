@@ -6,7 +6,7 @@ import { MEME_ASSETS } from "@/lib/reactions";
 import { useAudioManager } from "./audio-manager";
 import { MemeImage } from "./meme-image";
 
-export function AnalysisLoader({ title = "ANALYZING" }: { title?: string }) {
+export function AnalysisLoader({ title = "VIBE CHECKING" }: { title?: string }) {
   const [line, setLine] = useState(LOADING_LINES[0]);
   const { playRandom } = useAudioManager();
 

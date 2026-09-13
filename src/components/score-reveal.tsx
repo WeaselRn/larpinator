@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { scoreColor } from "@/lib/ui";
 import { useAudioManager } from "./audio-manager";
 
-export function ScoreReveal({ score, label = "LARP SCORE" }: { score: number; label?: string }) {
+export function ScoreReveal({ score, label = "LARP LEVEL" }: { score: number; label?: string }) {
   const [display, setDisplay] = useState(0);
   const frame = useRef<number | null>(null);
   const { playRandom } = useAudioManager();

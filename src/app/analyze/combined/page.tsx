@@ -24,7 +24,7 @@ export default async function CombinedAnalysisPage() {
       }));
     }
   } catch (err) {
-    dbError = err instanceof Error ? err.message : "Could not load your analyses.";
+    dbError = err instanceof Error ? err.message : "Could not load your receipts.";
   }
 
   return <CombinedClient sources={sources} dbError={dbError} />;

@@ -23,7 +23,7 @@ export default function CvAnalysisPage() {
 
     if (mode === "text") {
       if (text.trim().length < 80) {
-        setLocalError("That's not a resume, that's a tweet. Paste at least a few lines.");
+        setLocalError("That's not a resume, that's a tweet. Paste at least a few lines, bestie.");
         return;
       }
     } else if (!file) {
@@ -45,12 +45,12 @@ export default function CvAnalysisPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
       <div className="mb-8">
-        <span className="chip">📄 cv analysis</span>
+        <span className="chip">📄 cv vibe check</span>
         <h1 className="title-display mt-4 text-5xl">
           UPLOAD YOUR <span className="text-hot">RESUME</span>
         </h1>
         <p className="mt-3 text-muted">
-          Let&apos;s see what HR sees vs what reality sees. PDF, image, or raw text.
+          Let&apos;s see what HR sees vs what reality sees. PDF, image, or raw text. The buzzwords will be counted.
         </p>
       </div>
 
@@ -89,7 +89,7 @@ export default function CvAnalysisPage() {
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 rows={12}
-                placeholder="Paste your resume here… every buzzword will be counted."
+                placeholder="Paste your resume here… every buzzword will be counted, no cap."
                 className="input resize-y font-mono text-xs leading-relaxed"
               />
               <p className="mt-1.5 text-right font-mono text-[10px] text-muted">
@@ -119,7 +119,7 @@ export default function CvAnalysisPage() {
           {localError && <ErrorPanel message={localError} />}
 
           <button type="submit" className="btn-hot !py-3.5 text-base">
-            🔥 Roast my resume
+            🔥 Cook my resume
           </button>
           <p className="font-mono text-[10px] text-muted">
             Uploaded files are processed in memory and never stored permanently.
@@ -151,7 +151,7 @@ export default function CvAnalysisPage() {
               ← Analyze another CV
             </button>
             <Link href="/analyze/combined" className="btn-grape">
-              🧬 Run combined analysis
+              🧬 Run cross-vibe audit
             </Link>
           </div>
         </div>

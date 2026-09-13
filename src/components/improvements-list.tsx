@@ -10,7 +10,7 @@ export function ImprovementsList({ improvements }: { improvements: string[] }) {
         <div>
           <h3 className="title-display text-xl">LEVEL-UP GUIDE</h3>
           <p className="font-mono text-xs text-muted">
-            How to LARP harder — and how to actually get better.
+            How to LARP harder — and how to actually touch grass.
           </p>
         </div>
         <MemeImage
@@ -23,7 +23,7 @@ export function ImprovementsList({ improvements }: { improvements: string[] }) {
         {improvements.map((item, i) => (
           <li key={i} className="panel-2 flex gap-3 p-3.5 text-sm leading-relaxed">
             <span className="mt-0.5">{item.startsWith("🪄") ? "🪄" : item.startsWith("🧠") ? "🧠" : "•"}</span>
-            <span>{item.replace(/^🪄\s*LARP harder:\s*/i, "").replace(/^🧠\s*Actually improve:\s*/i, "")}</span>
+            <span>{item.replace(/^🪄\s*LARP harder:\s*/i, "").replace(/^🧠\s*Actually improve:\s*/i, "").replace(/^🧠\s*Touch grass:\s*/i, "")}</span>
           </li>
         ))}
       </ul>

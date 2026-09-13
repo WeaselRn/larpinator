@@ -10,5 +10,5 @@ export function jsonOk<T>(data: T, status = 200) {
 
 export function errorMessage(err: unknown): string {
   if (err instanceof Error) return err.message;
-  return "Something went wrong.";
+  return "Something went wrong. The AI is having a moment, no cap.";
 }

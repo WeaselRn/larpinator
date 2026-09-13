@@ -36,19 +36,19 @@ interface QuizQuestionRow {
 function buildRoast(accuracy: number, avgConfidence: number): string {
   const gap = avgConfidence - accuracy;
   if (accuracy === 100) {
-    return "Perfect score. Either you're genuinely smart or you cheated — and cheaters don't score this well.";
+    return "Perfect score. Either you're built different or you cheated — and honestly, both are giving main character energy. No cap.";
   }
   if (gap >= 40) {
-    return `${Math.round(avgConfidence)}% confidence, ${Math.round(accuracy)}% correctness. That's not self-assurance, that's fan fiction. 💀`;
+    return `${Math.round(avgConfidence)}% confidence, ${Math.round(accuracy)}% correctness. That's not self-assurance, that's fan fiction. You were writing the lore in real time. 💀`;
   }
   if (gap >= 20) {
-    return "You were certain about things you were wrong about. Classic LARP behaviour: confidence first, facts whenever.";
+    return "You were certain about things you were wrong about. Classic LARP behaviour: confidence first, receipts whenever.";
   }
   if (gap <= -25) {
-    return "You knew more than you believed. Imposter syndrome — the most honest form of LARPing.";
+    return "You knew more than you believed. Imposter syndrome — the most honest form of LARPing. Mewing could fix this.";
   }
   if (accuracy < 40) {
-    return "Answering with vibes and hoping for the best. Respect the confidence, pity the accuracy.";
+    return "Answering with vibes and hoping for the best. Respect the main character energy, pity the accuracy.";
   }
   return "Decently calibrated. You're larping less than the average NPC — but where's the fun in that?";
 }
@@ -58,16 +58,16 @@ function buildImprovements(accuracy: number, avgConfidence: number): string[] {
   const gap = avgConfidence - accuracy;
 
   if (gap > 15) {
-    items.push("🧠 Actually improve: pause before the confidence slider. Certainty is not a personality trait.");
+    items.push("🧠 Touch grass: pause before the confidence slider. Certainty is not a personality trait.");
   } else if (gap < -15) {
-    items.push("🧠 Actually improve: trust yourself. You're better at this than you think.");
+    items.push("🧠 Touch grass: trust yourself. You're better at this than you think.");
   } else {
-    items.push("🧠 Actually improve: keep that calibration. It's rare and mildly concerning.");
+    items.push("🧠 Touch grass: keep that calibration. It's rare and mildly concerning.");
   }
 
   items.push(
     "🪄 LARP harder: answer instantly, never double-check, and refer to your 'intuition' as a methodology.",
-    "🧠 Actually improve: read every option before answering. 'All of the above' is not a strategy.",
+    "🧠 Touch grass: read every option before answering. 'All of the above' is not a strategy.",
   );
 
   if (accuracy < 50) {
@@ -81,15 +81,15 @@ function buildImprovements(accuracy: number, avgConfidence: number): string[] {
 
 export async function POST(request: NextRequest) {
   const { userId } = await auth();
-  if (!userId) return jsonError("Unauthorized", 401);
+  if (!userId) return jsonError("Sign in to get LARPed, bestie.", 401);
 
   try {
     const profile = await ensureProfile();
-    if (!profile) return jsonError("Unauthorized", 401);
+    if (!profile) return jsonError("Sign in to get LARPed, bestie.", 401);
 
     const parsed = submitSchema.safeParse(await request.json().catch(() => null));
     if (!parsed.success) {
-      return jsonError("Invalid quiz submission.", 400);
+      return jsonError("Invalid quiz submission. The form is giving delulu.", 400);
     }
 
     const { answers, category, mode } = parsed.data;
@@ -105,7 +105,7 @@ export async function POST(request: NextRequest) {
     const questions = new Map((questionRows ?? []).map((q) => [q.id as string, q as QuizQuestionRow]));
 
     if (questions.size === 0) {
-      return jsonError("Quiz questions not found. Try restarting the quiz.", 400);
+      return jsonError("Quiz questions not found. Try restarting the quiz — maybe the questions ghosted.", 400);
     }
 
     let correctCount = 0;

@@ -10,7 +10,7 @@ export function FindingsList({ findings }: { findings: Finding[] }) {
         {findings.map((finding, i) => (
           <div key={i} className="panel-2 flex flex-col gap-2.5 p-4">
             <span className="font-mono text-xs tracking-widest text-hot uppercase">
-              Finding #{i + 1}
+              Receipt #{i + 1}
             </span>
             <h4 className="font-bold">{finding.title}</h4>
             <p className="rounded-lg border border-edge bg-ink-2 px-3 py-2 font-mono text-xs leading-relaxed text-muted">

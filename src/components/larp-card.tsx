@@ -62,7 +62,7 @@ export function LarpCard({ data, className = "" }: { data: LarpCardData; classNa
           </span>
           <span className="title-display mb-1 text-xl text-muted">/100</span>
           <span className="mb-1.5 ml-auto font-mono text-[10px] tracking-widest text-muted uppercase">
-            larp score
+            larp level
           </span>
         </div>
 
@@ -180,7 +180,7 @@ function drawCard(canvas: HTMLCanvasElement, data: LarpCardData) {
 
   ctx.font = "28px Consolas, monospace";
   ctx.fillStyle = "rgba(255,255,255,0.4)";
-  ctx.fillText("the internet's bullshit detector", 84, H - 80);
+  ctx.fillText("the internet's delulu detector", 84, H - 80);
 
   ctx.font = "bold 40px Arial";
   ctx.fillStyle = "#ff2d78";
@@ -204,7 +204,7 @@ export function DownloadCardButton({ data, className = "btn-hot" }: { data: Larp
 
   return (
     <button type="button" onClick={download} className={className}>
-      🖼️ Download card
+      🖼️ Download receipt
     </button>
   );
 }

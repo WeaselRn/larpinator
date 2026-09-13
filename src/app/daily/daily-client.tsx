@@ -54,7 +54,7 @@ export function DailyClient({
   const submit = async (event: FormEvent) => {
     event.preventDefault();
     if (response.trim().length < 5) {
-      setError("Write at least a few words. Even a bad answer is content.");
+      setError("Write at least a few words. Even a bad answer is content, bestie.");
       return;
     }
     setLoading(true);
@@ -139,7 +139,7 @@ export function DailyClient({
         <div className="animate-rise flex flex-col gap-6">
           <div className="panel flex flex-col items-center gap-4 p-6 sm:p-8">
             <span className="chip">🎯 daily larp</span>
-            <ScoreReveal score={result.result.overall_score} label="DAILY LARP SCORE" />
+            <ScoreReveal score={result.result.overall_score} label="DAILY LARP LEVEL" />
             <TierBadge score={result.result.overall_score} size="lg" />
             <div className="flex flex-wrap items-center justify-center gap-3">
               <span className="chip">📊 rank #{result.rank} today</span>

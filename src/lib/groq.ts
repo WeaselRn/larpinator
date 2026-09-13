@@ -16,7 +16,7 @@ export function isGroqConfigured(): boolean {
 function getClient(): Groq {
   const apiKey = process.env.GROQ_API_KEY ?? process.env.GROQ;
   if (!apiKey) {
-    throw new Error("GROQ_API_KEY is missing. Add it to .env (server-side only).");
+    throw new Error("GROQ_API_KEY is missing. Add it to .env (server-side only) or the roast engine can't cook.");
   }
   if (!client) client = new Groq({ apiKey });
   return client;
@@ -45,13 +45,13 @@ function describeGroqError(err: unknown): string {
     const typed = err as { status?: number; error?: { message?: string }; message?: string };
     const status = typed.status;
     const detail = (typed.error?.message ?? typed.message ?? "").slice(0, 300);
-    if (status === 401) return "AI provider rejected the API key (401). Check GROQ_API_KEY.";
-    if (status === 429) return "AI provider rate limit hit (429). Wait a moment and try again.";
-    if (status && status >= 500) return "AI provider is having a moment. Try again shortly.";
+    if (status === 401) return "AI provider rejected the API key (401). Check GROQ_API_KEY before the roast engine goes feral.";
+    if (status === 429) return "AI provider rate limit hit (429). The roast engine is cooked. Wait a moment and try again.";
+    if (status && status >= 500) return "AI provider is having a moment. Even the delulu detector needs a breather.";
     return `AI provider error (${status ?? "unknown"})${detail ? `: ${detail}` : ""}.`;
   }
   if (err instanceof Error) return err.message;
-  return "AI provider error.";
+  return "AI provider error. The vibes from the model were off.";
 }
 
 function isRateLimitError(err: unknown): boolean {
@@ -101,7 +101,7 @@ export async function requestStructuredJson<S extends z.ZodTypeAny>(options: {
                 {
                   role: "user",
                   content:
-                    "Your previous output was not valid JSON matching the required shape. Respond again with ONLY the valid JSON object, no markdown fences, no commentary.",
+                    "Your previous output was not valid JSON matching the required shape. Respond again with ONLY the valid JSON object, no markdown fences, no commentary. Stay unhinged but stay valid.",
                 },
               ],
         temperature: options.temperature ?? 0.85,
@@ -140,7 +140,7 @@ export async function transcribeImage(dataUrl: string): Promise<string> {
   const model = groqVisionModel();
   if (!model) {
     throw new Error(
-      "Image resume analysis isn't available (no vision model configured on this Groq account). Upload a PDF or paste the text instead.",
+      "Image resume analysis isn't available (no vision model configured on this Groq account). Upload a PDF or paste the text instead — image LARP is mid anyway.",
     );
   }
 

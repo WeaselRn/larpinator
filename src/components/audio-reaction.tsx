@@ -5,7 +5,7 @@ import { useAudioManager } from "./audio-manager";
 
 /** Manual replay button for the score-reveal sound. */
 export function AudioReaction({
-  label = "Play sound",
+  label = "Run it back",
   autoPlay = false,
 }: {
   label?: string;

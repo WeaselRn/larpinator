@@ -11,7 +11,7 @@ export function HistoryGraph({ points }: { points: HistoryPoint[] }) {
     return (
       <div className="panel flex h-44 items-center justify-center p-6 text-center">
         <p className="font-mono text-xs text-muted">
-          Not enough history to draw a graph. Complete more analyses — your descent into LARP will
+          Not enough history to draw a graph. Complete more analyses — your descent into main-character energy will
           be charted here.
         </p>
       </div>
@@ -45,7 +45,7 @@ export function HistoryGraph({ points }: { points: HistoryPoint[] }) {
       <div className="mb-3 flex items-center justify-between">
         <h3 className="title-display text-xl">LARP HISTORY</h3>
         <span className="font-mono text-[10px] tracking-widest text-muted uppercase">
-          score over time
+          larp over time
         </span>
       </div>
       <svg viewBox={`0 0 ${width} ${height}`} className="h-44 w-full" preserveAspectRatio="none">

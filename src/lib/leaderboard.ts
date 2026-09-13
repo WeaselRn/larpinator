@@ -20,15 +20,15 @@ export interface BoardDef {
 }
 
 export const BOARDS: BoardDef[] = [
-  { key: "global", label: "Global LARP", emoji: "🏆", blurb: "Highest overall LARP score" },
-  { key: "lowest", label: "Least LARP", emoji: "🧘", blurb: "Suspiciously genuine people" },
-  { key: "aura", label: "Highest Aura", emoji: "⚡", blurb: "Certified aura farmers" },
-  { key: "cringe", label: "Most Cringe", emoji: "🤡", blurb: "We're not mad, we're impressed" },
-  { key: "buzzword", label: "Buzzword Merchant", emoji: "🧢", blurb: "Synergy. Leverage. Scalable." },
-  { key: "quiz", label: "Quiz Champions", emoji: "🧠", blurb: "Best quiz LARP scores" },
-  { key: "battle", label: "Battle Champions", emoji: "⚔️", blurb: "Most battle wins", unit: "wins" },
-  { key: "daily", label: "Daily LARP", emoji: "🎯", blurb: "Best daily challenge scores" },
-  { key: "streak", label: "Longest Streak", emoji: "🔥", blurb: "Consecutive daily LARPs", unit: "days" },
+  { key: "global", label: "Main Characters", emoji: "🏆", blurb: "Highest overall LARP score — the biggest main characters alive" },
+  { key: "lowest", label: "Least Delulu", emoji: "🧘", blurb: "Suspiciously grounded people. Are they okay?" },
+  { key: "aura", label: "Aura Farmers", emoji: "⚡", blurb: "Certified mewers and aura harvesters" },
+  { key: "cringe", label: "Most Ick", emoji: "🤡", blurb: "We're not mad, we're just impressed" },
+  { key: "buzzword", label: "Buzzword Farmers", emoji: "🧢", blurb: "Synergy. Leverage. Scalable. Zero substance." },
+  { key: "quiz", label: "Quiz GOATs", emoji: "🧠", blurb: "Best quiz LARP scores — confidence is a weapon here" },
+  { key: "battle", label: "Battle GOATs", emoji: "⚔️", blurb: "Most battle wins", unit: "wins" },
+  { key: "daily", label: "Daily Larps", emoji: "🎯", blurb: "Best daily challenge scores" },
+  { key: "streak", label: "Streakmaxxers", emoji: "🔥", blurb: "Consecutive daily Larps", unit: "days" },
 ];
 
 export interface LeaderboardRow {

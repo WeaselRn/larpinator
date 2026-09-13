@@ -36,7 +36,7 @@ export const battleResultSchema = z.object({
 });
 
 export class AiValidationError extends Error {
-  constructor(message = "The AI returned an invalid response. Nothing was saved — try again.") {
+  constructor(message = "The AI returned an invalid response. Nothing was saved — try again, no cap.") {
     super(message);
     this.name = "AiValidationError";
   }
